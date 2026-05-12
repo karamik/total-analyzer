@@ -1,0 +1,12 @@
+target/
+.git/
+.github/
+examples/
+*.md
+*.sarif
+*.rs.bk
+Cargo.lock
+.gitignore
+.dockerignore
+Dockerfile
+Makefile
