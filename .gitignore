@@ -1,0 +1,7 @@
+/target/
+**/*.rs.bk
+*.sarif
+*.pid
+*.log
+/examples/vulnerable_app.py   # генерируется make test
+Cargo.lock   # для библиотек обычно включают, но для бинарника можно исключить
