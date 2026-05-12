@@ -1,0 +1,11 @@
+repos:
+  - repo: local
+    hooks:
+      - id: total-analyzer-docker
+        name: TOTAL Analyzer (Docker)
+        description: Scans Python files for SQL injections and crypto offload opportunities
+        entry: bash -c 'docker run --rm -v $(pwd):/src ghcr.io/karamik/total-analyzer:latest /src --sarif > .sarif-tmp && if grep -q "\"level\":\"error\"" .sarif-tmp; then echo "❌ SQL injection found" && cat .sarif-tmp && exit 1; else echo "✅ No critical issues"; fi'
+        language: system
+        files: \.py$
+        pass_filenames: false
+        verbose: true
